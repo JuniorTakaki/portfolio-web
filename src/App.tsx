@@ -1,3 +1,4 @@
+import { ShieldCheckIcon, ComputerIcon , CloudIcon } from 'lucide-react';
 import { BriefExperienceCard } from './components/briefExperience';
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
@@ -5,14 +6,22 @@ import { ProfessionalCard } from "./components/professionalCard";
 
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   const briefExperienceData = [
-    { title: "Active Directory (LDAP)" },
-    { title: "Cybersecurity Awarenessgoo" },
-    { title: "Technical Support" },
-    { title: "Cloud & Virtualization (basic)" },
-    { title: "Networking Fundamentals " },
-    { title: "Repair computer" },
+    {
+      title: "Google IT Support",
+      description: "Technical Support Fundamentals",
+      certificateImage: "/img/google_page-0001.jpg",
+    },
+    {
+      title: "Active Directory (LDAP)",
+      description: "Gerenciamento de contas, permissões e autenticação em ambiente corporativo.",
+      icon: <ShieldCheckIcon />
+    },
+    {
+      title: "Cloud & Virtualization (básico)",
+      description: "Conceitos de máquinas virtuais e nuvem com GCP e VirtualBox.",
+      icon: <CloudIcon />
+    },
   ];
   return (
     <div className="bg-gradient-to-br from-black via-gray-900 to-black">
@@ -49,7 +58,7 @@ function App() {
               Armando Setsuo
             </h1>
             
-            <div className="text-4xl sm:text-6xl font-semibold text-gray-300">
+            <div className="text-4xl sm:text-6xl font-semibold text-gray-200">
               <p className="flex items-center font-semibold">Technical Support</p>
 
               <span className="relative inline-block mt-4 group w-fit">
@@ -60,7 +69,7 @@ function App() {
                 <span className="absolute left-0 bottom-0 h-[2px] w-full bg-purple-700 animate-underline pointer-events-none"></span>
               </span>
 
-              <p className="text-lg md:text-xl text-gray-500 italic mt-6">
+              <p className="text-lg md:text-xl text-gray-300 italic mt-6">
                 “Tudo que eu faço tem um propósito técnico e corporativo.”
               </p>
             </div>
@@ -128,10 +137,10 @@ function App() {
       </ul>
     </div>
   </section> */}
-
+  
       <section id="brief-experience" className="h-screen text-white  px-6 ">
         {/* 4. Brief Experience */}
-        <div className=" max-w-4xl mx-auto space-y-12">
+        <div className=" mx-auto space-y-12">
           <h2 className="text-3xl md:text-4xl font-bold font-mono text-white text-center">
             Brief Experience
           </h2>
@@ -141,10 +150,14 @@ function App() {
               <BriefExperienceCard
                 key={index}
                 title={item.title}
+                description={item.description}
+                certificateImage={item.certificateImage}
               />
+              
             ))}
           </ul>
         </div>
+        
       </section>
 
       <style>{`
