@@ -16,7 +16,7 @@ function App() {
     { title: "Repair computer" },
   ];
   return (
-    <div className="w-full bg-neutral-950">
+    <div className="bg-gradient-to-br from-black via-gray-900 to-black">
       {/* Top Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-neutral-950 border-b border-neutral-700 shadow-lg py-4 px-6 flex justify-between items-center">
         <h1 className="text-white text-xl font-bold font-mono">Armando S.</h1>
@@ -45,8 +45,8 @@ function App() {
       <div className="pt-6">
         {/* 1. Apresentação */}
         <section className="h-screen flex items-center justify-center py-28 px-2">
-          <div className="max-w-2xl w-full space-y-8">
-            <h1 className="text-lg sm:text-2xl font-semibold text-gray-200 transform transition-transform duration-300 hover:scale-105">
+          <div className="max-w-2xl  space-y-8">
+            <h1 className="text-lg h-auto sm:text-2xl font-semibold text-purple-700 transform transition-transform duration-300 hover:scale-105">
               Armando Setsuo
             </h1>
             
@@ -69,60 +69,68 @@ function App() {
         </section>
      
       {/* 2. Resumo Profissional */}
-      <section id="professional-summary" className="h-screen bg-neutral-950 text-white py-28 px-6  ">
-        <div className="max-w-2xl w-full mx-auto text-center mb-24 space-y-10">
-          <h2 className="text-3xl md:text-4xl font-bold font-mono text-white animate-fade-in-down">
-            Professional Summary
-          </h2>
-          <div className="text-lg md:text-xl leading-relaxed text-gray-300 space-y-6">
-            <p>
-              IT Technician with hands-on experience managing and maintaining over{" "}
-              <span className="text-purple-400 font-semibold">280 computers</span> across six school laboratories.
-            </p>
-            <p>
-              Specialized in{" "}
-              <span className="text-purple-400 font-semibold">automation using Python and CMD</span>, developing desktop systems with SQLite and intelligent asset tracking via QR Codes.
-            </p>
-            <p>
-              Strong skills in{" "}
-              <span className="text-purple-400 font-semibold">network administration</span>, and{" "}
-              <span className="text-purple-400 font-semibold">deployment via MDT/WDS</span>.
-            </p>
-            <p>
-              Currently transitioning into{" "}
-              <span className="text-purple-400 font-semibold">DevOps</span> and{" "}
-              <span className="text-purple-400 font-semibold">Information Security</span>, aiming to deliver scalable and efficient solutions in enterprise environments.
-            </p>
-          </div>
+      <section className="min-h-screen  flex items-center justify-center px-4">
+      <div className="backdrop-blur-md bg-white/5 border border-purple-500/30 shadow-[0_0_30px_#a855f7] rounded-2xl p-8 md:p-12 max-w-4xl w-full transition duration-300 hover:scale-[1.02] hover:shadow-[0_0_50px_#a855f7]">
+
+        <h2 className="text-center text-3xl md:text-4xl font-bold text-white mb-8 tracking-wide">
+          Professional <span className="text-purple-400">Summary</span>
+        </h2>
+
+        <div className="space-y-6 text-gray-200 text-base md:text-lg leading-relaxed">
+          <p>
+            <span className="text-purple-300 font-semibold">IT Technician</span> with hands-on experience managing and maintaining
+            over <span className="text-purple-400 font-bold">280 computers</span> across six school laboratories.
+          </p>
+
+          <p>
+            Specialized in{" "}
+            <span className="text-purple-300 font-semibold">automation using Python and CMD</span>,
+            developing desktop systems with SQLite and intelligent asset tracking via QR Codes.
+          </p>
+
+          <p>
+            Strong skills in{" "}
+            <span className="text-purple-300 font-semibold">network administration</span> and{" "}
+            <span className="text-purple-300 font-semibold">deployment via MDT/WDS</span>.
+          </p>
+
+          <p>
+            Currently transitioning into{" "}
+            <span className="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent font-semibold">
+              DevOps and Information Security
+            </span>, aiming to deliver scalable and efficient solutions in enterprise environments.
+          </p>
         </div>
-      </section>
-      <section id="professional-experience" className="h-screen bg-neutral-950 text-white py-28 px-6 ">
-        {/* 3. Experiência Profissional */}
-        <div className="max-w-4xl mx-auto space-y-12">
-          <h2 className="text-3xl md:text-4xl font-bold font-mono text-white text-center">
-            Professional Experience
-          </h2>
-          <ul className="grid md:grid-cols-2 gap-8">
-            <ExperienceCard
-              image="/img/anchieta.jpeg"
-              alt="Grupo Anchieta"
-              company="Grupo Anchieta"
-              role="IT Assistant"
-              date="Oct 2024 – Present"
-              type="atual"
-            />
-            <ExperienceCard
-              image="/img/igus.jpeg"
-              alt="Igus"
-              company="Igus"
-              role="Temporary Outsourced IT Support "
-              date="May 2024 – Jun 2024"
-              type="temporario"
-            />
-          </ul>
-        </div>
-      </section>
-      <section id="brief-experience" className="h-screen bg-neutral-950 text-white py-28 px-6 ">
+      </div>
+    </section>
+         {/* <section id="professional-experience" className="min-h-screen text-white py-28 px-4">
+    <div className="max-w-4xl mx-auto space-y-12">
+      <h2 className="text-3xl md:text-4xl font-bold font-mono text-white text-center">
+        Professional Experience
+      </h2>
+
+      <ul className="grid gap-6 md:grid-cols-2">
+        <ExperienceCard
+          image="/img/anchieta.jpeg"
+          alt="Grupo Anchieta"
+          company="Grupo Anchieta"
+          role="IT Assistant"
+          date="Oct 2024 – Present"
+          type="atual"
+        />
+        <ExperienceCard
+          image="/img/igus.jpeg"
+          alt="Igus"
+          company="Igus"
+          role="Temporary Outsourced IT Support"
+          date="May 2024 – Jun 2024"
+          type="temporario"
+        />
+      </ul>
+    </div>
+  </section> */}
+
+      <section id="brief-experience" className="h-screen text-white  px-6 ">
         {/* 4. Brief Experience */}
         <div className=" max-w-4xl mx-auto space-y-12">
           <h2 className="text-3xl md:text-4xl font-bold font-mono text-white text-center">
@@ -165,7 +173,7 @@ function App() {
           transform: scaleX(0);
         }
       `}</style>
-      <section id="contact" className="py-20 px-5">
+      <section id="contact" className=" py-20 px-5">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex w-full justify-start">
             <div className="grid grid-cols-1 sm:w-1/2 lg:w-1/4 mb-4 sm:mb-0">
