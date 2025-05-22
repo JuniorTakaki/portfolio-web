@@ -1,4 +1,3 @@
-import { ExperienceCard } from "./components/experienceCard";
 import { BriefExperienceCard } from './components/briefExperience';
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
