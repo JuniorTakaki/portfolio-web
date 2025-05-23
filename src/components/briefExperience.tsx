@@ -50,7 +50,7 @@ export const BriefExperienceCard = ({ title, description, certificateImage }: Br
       {fullscreenImage && (
   <div
     className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center"
-    onClick={() => setFullscreenImage(null)} // fecha ao clicar fora
+    onClick={() => setFullscreenImage(null)}
   >
     <img
       src={fullscreenImage}

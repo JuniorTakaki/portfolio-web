@@ -9,8 +9,28 @@ function App() {
   const briefExperienceData = [
     {
       title: "Google IT Support",
-      description: "Technical Support Fundamentals",
-      certificateImage: "/img/google_page-0001.jpg",
+      description:"Technical Support Fundamentals",
+      certificateImage:"/img/google0.jpg",
+    },
+    {
+      title:"Google IT Support",
+      description:"The Bits and Bytes of Computer Networking",
+      certificateImage:"/img/google1.jpg"
+    },
+    {
+      title:"Google IT Support",
+      description:"Operating Systems",
+      certificateImage:"/img/google2.jpg"
+    },
+    {
+      title:"Google IT Support",
+      description:"System Administration and IT Infrastructure Services",
+      certificateImage:"/img/google3.jpg"
+    },
+    {
+      title:"Google IT Support",
+      description:"IT Security",
+      certificateImage:"/img/google4.jpg"
     },
     {
       title: "Active Directory (LDAP)",
@@ -23,23 +43,22 @@ function App() {
       icon: <CloudIcon />
     },
   ];
+
   return (
     <div className="bg-gradient-to-br from-black via-gray-900 to-black">
-      {/* Top Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-neutral-950 border-b border-neutral-700 shadow-lg py-4 px-6 flex justify-between items-center">
         <h1 className="text-white text-xl font-bold font-mono">Armando S.</h1>
-        <div className="hidden sm:flex gap-8 text-white font-semibold">
-        <ProfessionalCard topic="Professional Summary"/>
-        <ProfessionalCard topic="Professional Experience"/>
-        <ProfessionalCard topic="Brief Experience"/>
-        <ProfessionalCard topic="Contact"/>
-        </div>
+          <div className="hidden sm:flex gap-8 text-white font-semibold">
+            <ProfessionalCard topic="Professional Summary"/>
+            <ProfessionalCard topic="Professional Experience"/>
+            <ProfessionalCard topic="Brief Experience"/>
+            <ProfessionalCard topic="Contact"/>
+          </div>
         <button className="sm:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X className="text-white"/> : <Menu className="text-white" />}
         </button>
       </nav>
 
-      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="sm:hidden fixed top-16 left-0 right-0 bottom-0 z-40 bg-neutral-950 p-6 text-white font-semibold flex flex-col justify-center items-center space-y-6">
           <a href="#professional-summary" className="text-center" onClick={() => setIsMobileMenuOpen(false)}>Professional Summary</a>
@@ -49,18 +68,18 @@ function App() {
         </div>
       )}
 
-      {/* Content Wrapper */}
-      <div className="pt-6">
-        {/* 1. Apresentação */}
-        <section className="h-screen flex items-center justify-center py-28 px-2">
-          <div className="max-w-2xl  space-y-8">
-            <h1 className="text-lg h-auto sm:text-2xl font-semibold text-purple-700 transform transition-transform duration-300 hover:scale-105">
-              Armando Setsuo
-            </h1>
-            
-            <div className="text-4xl sm:text-6xl font-semibold text-gray-200">
-              <p className="flex items-center font-semibold">Technical Support</p>
-
+    <div className="pt-6">
+      <section className="h-screen flex items-center justify-center py-28 px-2">
+        <div className="max-w-2xl  space-y-8">
+          <h1 className="text-lg h-auto sm:text-2xl font-semibold text-purple-700 transform transition-transform duration-300 hover:scale-105">
+            Armando Setsuo
+          </h1>
+        <div className="text-4xl  sm:text-6xl font-semibold text-gray-200">
+          <blockquote className=" font-semibold text-gray-950 italic dark:text-white">Technical
+              <span className="relative inline-block before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-purple-700">    
+                <span className="relative text-transparent dark:text-gray-950 hover:scale-110 transform transition-transform duration-300 "> Support </span>
+              </span> 
+          </blockquote>
               <span className="relative inline-block mt-4 group w-fit">
                 <span className="relative z-10 px-2 animator-text flex">
                   <span className="text-gray-500 text-2xl md:text-3xl">+</span>
@@ -68,42 +87,37 @@ function App() {
                 </span>
                 <span className="absolute left-0 bottom-0 h-[2px] w-full bg-purple-700 animate-underline pointer-events-none"></span>
               </span>
-
-              <p className="text-lg md:text-xl text-gray-300 italic mt-6">
-                “Tudo que eu faço tem um propósito técnico e corporativo.”
-              </p>
-            </div>
+                <p className="text-lg md:text-xl text-gray-300 italic mt-6">
+                  “Tudo que eu faço tem um propósito técnico e corporativo.”
+                </p>
           </div>
-        </section>
-     
-      {/* 2. Resumo Profissional */}
+        </div>
+      </section>
+
       <section className="min-h-screen  flex items-center justify-center px-4">
-      <div className="backdrop-blur-md bg-white/5 border border-purple-500/30 shadow-[0_0_30px_#a855f7] rounded-2xl p-8 md:p-12 max-w-4xl w-full transition duration-300 hover:scale-[1.02] hover:shadow-[0_0_50px_#a855f7]">
-
-        <h2 className="text-center text-3xl md:text-4xl font-bold text-white mb-8 tracking-wide">
-          Professional <span className="text-purple-400">Summary</span>
-        </h2>
-
+        <div className="backdrop-blur-md bg-white/5 border border-purple-500/30 shadow-[0_0_30px_#a855f7] rounded-2xl p-8 md:p-12 max-w-4xl w-full transition duration-300 hover:scale-[1.02] hover:shadow-[0_0_50px_#a855f7]">
+          <h2 className="text-center text-3xl md:text-4xl font-bold text-white mb-8 tracking-wide">Professional 
+            <span className="text-purple-400"> Summary </span>
+          </h2>
         <div className="space-y-6 text-gray-200 text-base md:text-lg leading-relaxed">
           <p>
-            <span className="text-purple-300 font-semibold">IT Technician</span> with hands-on experience managing and maintaining
-            over <span className="text-purple-400 font-bold">280 computers</span> across six school laboratories.
+            <span className="text-purple-300 font-semibold">IT Technician { }</span> 
+                with hands-on experience managing and maintaining over 
+              <span className="text-purple-400 font-bold"> 280 computers </span>
+                across six school laboratories.
           </p>
-
           <p>
-            Specialized in{" "}
+            Specialized in { }
             <span className="text-purple-300 font-semibold">automation using Python and CMD</span>,
             developing desktop systems with SQLite and intelligent asset tracking via QR Codes.
           </p>
-
           <p>
-            Strong skills in{" "}
+            Strong skills in { }
             <span className="text-purple-300 font-semibold">network administration</span> and{" "}
             <span className="text-purple-300 font-semibold">deployment via MDT/WDS</span>.
           </p>
-
           <p>
-            Currently transitioning into{" "}
+            Currently transitioning into { }
             <span className="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent font-semibold">
               DevOps and Information Security
             </span>, aiming to deliver scalable and efficient solutions in enterprise environments.
@@ -138,7 +152,7 @@ function App() {
     </div>
   </section> */}
   
-      <section id="brief-experience" className="h-screen text-white  px-6 ">
+      <section id="brief-experience" className="h-screen w-full text-white mx-auto  px-6 ">
         {/* 4. Brief Experience */}
         <div className=" mx-auto space-y-12">
           <h2 className="text-3xl md:text-4xl font-bold font-mono text-white text-center">
