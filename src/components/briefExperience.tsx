@@ -21,14 +21,16 @@ export const BriefExperienceCard = ({
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="text-white p-4 w-full h-full max-w-md mx-auto transition-all duration-300">
+    <div className="text-white p-4 w-full h-full max-w-md mx-auto transition-all duration-300 ">
       <button
         className="flex items-center justify-between w-full text-left"
         onClick={() => setExpanded(!expanded)}
       >
-        <span className="relative font-semibold text-lg">
+        <span className="relative font-semibold text-lg  text-white transition-colors duration-300 hover:text-purple-400 
+        after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 
+        after:h-[2px] after:bg-purple-500 after:transition-all after:duration-300 hover:after:w-full">
           {title}
-          <span className="absolute left-0 bottom-0 h-[2px] w-full bg-purple-700 animate-underline pointer-events-none" />
+          <span/>
         </span>
         {expanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
       </button>

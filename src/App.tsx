@@ -1,7 +1,7 @@
 import { BriefExperienceCard } from './components/briefExperience';
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { ProfessionalCard } from "./components/professionalCard";
+import { Navbar } from "./components/navbar";
 
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -51,27 +51,34 @@ function App() {
 
   return (
     <div className="dark:bg-gradient-to-br from-black via-gray-900 to-black not-dark:bg-gradient-to-br not-dark:from-gray-200 not-Dark:via-gray-400 not-dark:to-white">
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-neutral-950 border-b border-neutral-700 shadow-lg py-4 px-6 flex justify-between items-center">
-        <h1 className="text-white text-xl font-bold font-mono">Armando S.</h1>
-          <div className="hidden sm:flex gap-8 text-white font-semibold">
-            <ProfessionalCard topic="Professional Summary"/>
-            <ProfessionalCard topic="Professional Experience"/>
-            <ProfessionalCard topic="Brief Experience"/>
-            <ProfessionalCard topic="Contact"/>
-          </div>
-        <button className="sm:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-          {isMobileMenuOpen ? <X className="text-white"/> : <Menu className="text-white" />}
-        </button>
-      </nav>
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-neutral-950/70 border-b border-neutral-700 shadow-lg py-3 px-6 flex justify-between items-center">
+  <h1 className="text-white text-xl font-bold font-mono">Armando S.</h1>
+  <div className="hidden sm:flex gap-10 text-white font-semibold tracking-wide">
+  {["Summary", "Experience", "Contact"].map((topic) => (
+    <Navbar key={topic} topic={topic} />
+  ))}
+</div>
 
-      {isMobileMenuOpen && (
-        <div className="sm:hidden fixed top-16 left-0 right-0 bottom-0 z-40 bg-neutral-950 p-6 text-white font-semibold flex flex-col justify-center items-center space-y-6">
-          <a href="#professional-summary" className="text-center" onClick={() => setIsMobileMenuOpen(false)}>Professional Summary</a>
-          <a href="#professional-experience" className="text-center" onClick={() => setIsMobileMenuOpen(false)}>Professional Experience</a>
-          <a href="#brief-experience" className="text-center" onClick={() => setIsMobileMenuOpen(false)}>Brief Experience</a>
-          <a href="#contact" className="text-center" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
-        </div>
-      )}
+  {/* Mobile Menu Button */}
+  <button className="sm:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+    {isMobileMenuOpen ? <X className="text-white" /> : <Menu className="text-white" />}
+  </button>
+
+  {/* Mobile Navigation */}
+  {isMobileMenuOpen && (
+    <div className="absolute top-full left-0 w-full bg-neutral-950 text-white flex flex-col items-start px-6 py-4 gap-4 sm:hidden border-t border-neutral-700">
+      {["Summary", "Experience","Contact"].map((item, i) => (
+        <a
+          key={i}
+          href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
+          className="text-white hover:text-purple-400 font-semibold"
+        >
+          {item}
+        </a>
+      ))}
+    </div>
+  )}
+</nav>
 
     <div className="pt-6">
       <section className="h-screen flex items-center justify-center py-28 px-2">
@@ -93,13 +100,13 @@ function App() {
                 <span className="absolute left-0 bottom-0 h-[2px] w-full bg-purple-700 animate-underline pointer-events-none"></span>
               </span>
                 <p className="text-lg md:text-xl dark:text-gray-300 not-dark:text-black italic mt-6">
-                  “Tudo que eu faço tem um propósito técnico e corporativo.”
+                  “Everything to a purpose, profissionally & corporately.”
                 </p>
           </div>
         </div>
       </section>
 
-      <section className="min-h-screen  flex items-center justify-center px-4">
+      <section id="summary" className="min-h-screen  flex items-center justify-center px-4">
         <div className="backdrop-blur-md bg-white/5 border border-purple-500/30 shadow-[0_0_30px_#a855f7] rounded-2xl p-8 md:p-12 max-w-4xl w-full transition duration-300 hover:scale-[1.02] hover:shadow-[0_0_50px_#a855f7]">
           <h2 className="text-center text-3xl md:text-4xl font-bold text-white mb-8 tracking-wide">Professional 
             <span className="text-purple-400"> Summary </span>
@@ -130,6 +137,7 @@ function App() {
         </div>
       </div>
     </section>
+
          {/* <section id="professional-experience" className="min-h-screen text-white py-28 px-4">
     <div className="max-w-4xl mx-auto space-y-12">
       <h2 className="text-3xl md:text-4xl font-bold font-mono text-white text-center">
@@ -157,15 +165,12 @@ function App() {
     </div>
   </section> */}
   
-      <section id="brief-experience" className="min-h-screen w-full text-white mx-auto  px-6 ">
-        {/* 4. Brief Experience */}
+      <section id="experience" className="py-24 w-full text-white mx-auto  px-6 ">
         <div className=" mx-auto w-full space-y-12">
           <h2 className="text-3xl md:text-4xl font-bold font-mono text-white text-center">
             Brief Experience
           </h2>
-          
           <ul className="mx-auto w-10/12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 list-none  pl-0">
-          
             {briefExperienceData.map((item, index) => (
               <BriefExperienceCard
                 key={index}
@@ -174,12 +179,9 @@ function App() {
                 certificateImage={item.certificateImage}
                 tags={item.Tags}
               />
-              
             ))}
-            
           </ul>
         </div>
-        
       </section>
 
       <style>{`
