@@ -3,12 +3,18 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { TagList } from './TagList';
 import { FullscreenImageModal } from './FullscreenImage';
+import { Rarity } from './Rarity';
+
+interface Tag {
+  label: string;
+  rarity: Rarity;
+}
 
 interface BriefExperienceItem {
   title: string;
   description?: string;
   certificateImage?: string;
-  tags?: string[];
+  tags?: Tag[];
 }
 
 export const BriefExperienceCard = ({

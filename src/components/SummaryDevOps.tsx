@@ -10,7 +10,7 @@ const SummaryDevOps = ({ reverse = false }) => {
           <img
             src="/img/devpro.svg"
             alt="Developer Illustration"
-            className="max-w-xs sm:max-w-sm md:max-w-md h-auto drop-shadow-lg drop-shadow-purple-700"
+            className="max-w-xs sm:max-w-sm md:max-w-md h-auto drop-shadow-lg drop-shadow-purple-600"
           />
         </div>
 

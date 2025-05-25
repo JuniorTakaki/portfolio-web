@@ -5,50 +5,83 @@ import { Navbar } from "./components/navbar";
 import SummaryDevOps from "./components/SummaryDevOps";
 import ContactSection from './components/ContactSection';
 import Cardfront from "./components/Cardfront";
+import { Rarity } from './components/Rarity';
 
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const briefExperienceData = [
     {
-      title: "Google IT Support",
-      description: "Technical Support Fundamentals",
+      title: "Technical Support",
+      description: "Google IT Support",
       certificateImage: "/img/google0.jpg",
-      Tags: ["windows", "linux", "tailwind"],
+      tags: [
+        { label: "Software", rarity: "common" as Rarity },
+        { label: "Hardware", rarity: "common" as Rarity },
+        { label: "CLI basic", rarity: "uncommon" as Rarity }
+      ]
     },
     {
-      title: "Google  IT Support",
-      description: "Computer Networking",
+      title: "Computer Networking",
+      description: "Google IT Support",
       certificateImage: "/img/google1.jpg",
-      Tags: [],
+      tags: [
+        { label: "TPC/IP", rarity: "common" as Rarity },
+        { label: "Network Troubleshooting", rarity: "common" as Rarity },
+        { label: "DNS & DCHP", rarity: "rare" as Rarity }
+      ]
     },
     {
-      title: "Google IT Support",
-      description: "Operating Systems",
+      title: "Operating Systems",
+      description: "Google IT Support",
       certificateImage: "/img/google2.jpg",
-      Tags: ["windows", "linux"],
+      tags: [
+        { label: "Windows", rarity: "common" as Rarity },
+        { label: "Linux", rarity: "rare" as Rarity },
+        { label: "Powershell", rarity: "rare" as Rarity},
+      ]
     },
     {
-      title: "Google IT Support",
-      description: "SysAdmin & Infrastructure",
+      title: "SysAdmin & Infrastructure",
+      description: "Google IT Support",
       certificateImage: "/img/google3.jpg",
-      Tags: ["windows", "linux", "LDAP",],
+      tags: [
+        { label: "Infrastructure", rarity: "common" as Rarity },
+        { label: "SysAdmin", rarity: "uncommon" as Rarity },
+        { label: "AD", rarity: "rare" as Rarity },
+        { label: "Cloud Computing", rarity: "epic" as Rarity}
+      ]
     },
     {
-      title: "Google IT Support",
-      description: "IT Security",
+      title: "IT Security",
+      description: "Google IT Support",
       certificateImage: "/img/google4.jpg",
-      Tags: ["windows", "linux", "Phising", "rootkit", "Spyware", "Kerberos"],
+      tags: [
+        { label: "Cryptography", rarity: "common" as Rarity },
+        { label: "Security Threats", rarity: "uncommon" as Rarity },
+        { label: "Network Security", rarity: "rare" as Rarity },
+        { label: "AAA", rarity: "rare" as Rarity },
+      ]
     },
     {
-      title: "Windows Server",
-      description: "Windows Server 2016",
+      title: "Windows Server 2016",
+      description: "Windows Server",
       certificateImage: "/img/ws2016.png",
-      Tags: ["WDS", "AD", "FTP"]
+      tags: [
+        { label: "AD", rarity: "uncommon" as Rarity },
+        { label: "FTP", rarity: "uncommon" as Rarity },
+        { label: "WDS", rarity: "rare" as Rarity },
+      ]
     },
     {
       title: "Cloud & Virtualization",
-      description: "Conceitos de máquinas virtuais e nuvem com GCP e VirtualBox.",
-      Tags: ["Hyper-v", "VirtualBox", "Vmware"]
+      description: "Conceitos de máquinas virtuais e Cloud.",
+      tags: [
+        { label: "VirtuaBox", rarity: "uncommon" as Rarity },
+        { label: "Vmware", rarity: "uncommon" as Rarity },
+        { label: "Hyper-V", rarity: "rare" as Rarity },
+        { label: "EC2", rarity: "rare" as Rarity },
+        { label: "Azure VM", rarity: "rare" as Rarity },
+      ]
     },
   ];
 
@@ -56,7 +89,7 @@ function App() {
     <div className="dark:bg-gradient-to-br from-black via-gray-900 to-black not-dark:bg-gradient-to-br not-dark:from-gray-200 not-Dark:via-gray-400 not-dark:to-white">
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md px-6 py-3 flex justify-between items-center">
         <h1 className="text-white text-xl sm:text-2xl font-bold font-mono tracking-widest">
-          Armando S.
+          Takaki.S
         </h1>
         <div className="hidden sm:flex gap-10 text-white font-semibold tracking-wide">
           {["About", "Experience", "Contact"].map((topic) => (
@@ -84,7 +117,7 @@ function App() {
         </div>
         );
         <section id="about" className="min-h-screen flex flex-col items-center justify-center px-4 py-16 space-y-16">
-          <SummaryDevOps reverse={false} />
+          <SummaryDevOps reverse={false}/>
         </section>
         <section id="experience" className="py-24 w-full text-white mx-auto px-6 ">
           <div className=" mx-auto w-full space-y-12">
@@ -98,7 +131,7 @@ function App() {
                   title={item.title}
                   description={item.description}
                   certificateImage={item.certificateImage}
-                  tags={item.Tags}
+                  tags={item.tags}
                 />
               ))}
             </ul>
