@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ChevronUp } from 'lucide-react';
 import { TagList } from './TagList';
 import { FullscreenImageModal } from './FullscreenImage';
 import { Rarity } from './Rarity';
@@ -24,23 +23,20 @@ export const BriefExperienceCard = ({
   tags = [],
 }: BriefExperienceItem) => {
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
-  const [expanded, setExpanded] = useState(false);
 
   return (
     <div className="text-white p-4 w-full h-full max-w-md mx-auto transition-all duration-300 ">
       <button
         className="flex items-center justify-between w-full text-left"
-        onClick={() => setExpanded(!expanded)}
       >
         <span className="relative font-semibold text-lg  text-white  hover:scale-110 duration-300">
           {title}
           <span/>
         </span>
-        {expanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
       </button>
 
       <AnimatePresence>
-        {expanded && description && (
+        {description && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
