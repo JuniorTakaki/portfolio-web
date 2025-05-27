@@ -8,7 +8,10 @@ import Cardfront from "./components/Cardfront";
 import { Rarity } from './components/Rarity';
 
 function App() {
+  // Estado para controle do menu mobile
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Dados de experiências resumidas para exibir os certificados
   const briefExperienceData = [
     {
       title: "Technical Support",
@@ -27,7 +30,7 @@ function App() {
       tags: [
         { label: "TPC/IP", rarity: "common" as Rarity },
         { label: "Network Troubleshooting", rarity: "common" as Rarity },
-        { label: "DNS & DCHP", rarity: "rare" as Rarity }
+        { label: "DNS & DHCP", rarity: "rare" as Rarity }
       ]
     },
     {
@@ -37,7 +40,7 @@ function App() {
       tags: [
         { label: "Windows", rarity: "common" as Rarity },
         { label: "Linux", rarity: "rare" as Rarity },
-        { label: "Powershell", rarity: "rare" as Rarity},
+        { label: "Powershell", rarity: "rare" as Rarity },
       ]
     },
     {
@@ -48,7 +51,7 @@ function App() {
         { label: "Infrastructure", rarity: "common" as Rarity },
         { label: "SysAdmin", rarity: "uncommon" as Rarity },
         { label: "AD", rarity: "rare" as Rarity },
-        { label: "Cloud Computing", rarity: "epic" as Rarity}
+        { label: "Cloud Computing", rarity: "epic" as Rarity }
       ]
     },
     {
@@ -76,7 +79,7 @@ function App() {
       title: "Cloud & Virtualization",
       description: "Conceitos de máquinas virtuais e Cloud.",
       tags: [
-        { label: "VirtuaBox", rarity: "uncommon" as Rarity },
+        { label: "VirtualBox", rarity: "uncommon" as Rarity },
         { label: "Vmware", rarity: "uncommon" as Rarity },
         { label: "Hyper-V", rarity: "rare" as Rarity },
         { label: "EC2", rarity: "rare" as Rarity },
@@ -86,45 +89,64 @@ function App() {
   ];
 
   return (
-    <div className="dark:bg-gradient-to-br from-black via-gray-900 to-black not-dark:bg-gradient-to-br not-dark:from-gray-200 not-Dark:via-gray-400 not-dark:to-white">
+    <div className="dark:bg-gradient-to-br from-black via-gray-900 to-black not-dark:bg-gradient-to-br not-dark:from-gray-200 not-dark:via-gray-400 not-dark:to-white">
+      {/* Navbar com menu fixo e responsivo */}
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md px-6 py-3 flex justify-between items-center">
         <h1 className="text-white text-xl sm:text-2xl font-bold font-mono tracking-widest">
           Takaki.S
         </h1>
+
+        {/* Menu Desktop */}
         <div className="hidden sm:flex gap-10 text-white font-semibold tracking-wide">
-          {["About", "Experience", "Contact"].map((topic) => (
+          {["home", "About", "Experience", "Contact"].map((topic) => (
             <Navbar key={topic} topic={topic} />
           ))}
         </div>
+        {/* Botão para abrir menu mobile */}
         <button
           className="sm:hidden text-white transition-all duration-200"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle Mobile Menu">
+          aria-label="Toggle Mobile Menu"
+        >
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
+
+        {/* Menu Mobile */}
         {isMobileMenuOpen && (
           <div className="absolute top-full left-0 w-full backdrop-blur-md flex flex-col px-6 py-4 sm:hidden gap-4">
-            {["About", "Experience", "Contact"].map((topic) => (
-              <Navbar key={topic} topic={topic}/>
+            {["Home","About", "Experience", "Contact"].map((topic) => (
+              <Navbar key={topic} topic={topic} />
             ))}
           </div>
         )}
       </nav>
-      <div className="pt-6">
-        return (
-        <div>
+
+      {/* Conteúdo principal com espaçamento superior para compensar navbar fixa */}
+      <main className="pt-20">
+        {/* Seção Home */}
+        <section id="home" className="flex justify-center items-center min-h-screen px-4">
           <Cardfront />
-        </div>
-        );
-        <section id="about" className="min-h-screen flex flex-col items-center justify-center px-4 py-16 space-y-16">
-          <SummaryDevOps reverse={false}/>
         </section>
-        <section id="experience" className="py-24 w-full text-white mx-auto px-6 ">
-          <div className=" mx-auto w-full space-y-12">
-            <h2 className="text-3xl md:text-4xl font-bold font-mono text-center hover:scale-x-102 etransform transition-transform ase-out duration-300 bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 bg-clip-text text-transparent">
-            Certificate
+
+        {/* Seção About */}
+        <section
+          id="about"
+          className="min-h-screen flex flex-col items-center justify-center px-4 py-16 space-y-16"
+        >
+          <SummaryDevOps reverse={false} />
+        </section>
+
+        {/* Seção Experience - certificados e skills */}
+        <section
+          id="experience"
+          className="py-24 w-full text-white mx-auto px-6"
+        >
+          <div className="mx-auto w-full space-y-12">
+            <h2 className="text-3xl md:text-4xl font-bold font-mono text-center hover:scale-x-102 transform transition-transform ease-out duration-300 bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 bg-clip-text text-transparent">
+              Certificate
             </h2>
-            <ul className="mx-auto w-10/12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 list-none  pl-0">
+
+            <ul className="mx-auto w-10/12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 list-none pl-0">
               {briefExperienceData.map((item, index) => (
                 <BriefExperienceCard
                   key={index}
@@ -138,37 +160,38 @@ function App() {
           </div>
         </section>
 
+        {/* Estilos específicos para animação underline */}
         <style>{`
-        @keyframes underline {
-          0% {
-            transform: scaleX(0);
+          @keyframes underline {
+            0% {
+              transform: scaleX(0);
+              transform-origin: left;
+            }
+            50% {
+              transform: scaleX(1);
+              transform-origin: left;
+            }
+            51% {
+              transform-origin: right;
+            }
+            100% {
+              transform: scaleX(0);
+              transform-origin: right;
+            }
+          }
+          .animate-underline {
+            animation: underline 3s ease-in-out infinite;
             transform-origin: left;
-          }
-          50% {
-            transform: scaleX(1);
-            transform-origin: left;
-          }
-          51% {
-            transform-origin: right;
-          }
-          100% {
             transform: scaleX(0);
-            transform-origin: right;
           }
-        }
+        `}</style>
 
-        .animate-underline {
-          animation: underline 3s ease-in-out infinite;
-          transform-origin: left;
-          transform: scaleX(0);
-        }
-      `}
-        </style>
-        <section id="contact">
-          <ContactSection/>
+        <section id="contact" className="px-6 py-12">
+          <ContactSection />
         </section>
-      </div>
+      </main>
     </div>
   );
 }
+
 export default App;
