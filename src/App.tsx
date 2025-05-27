@@ -6,12 +6,12 @@ import SummaryDevOps from "./components/SummaryDevOps";
 import ContactSection from './components/ContactSection';
 import Cardfront from "./components/Cardfront";
 import { Rarity } from './components/Rarity';
+/*import  ExperienceCarousel  from './components/ExperienceCarousel';*/
+import Knowledge from './components/knowledge'
 
 function App() {
-  // Estado para controle do menu mobile
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Dados de experiências resumidas para exibir os certificados
   const briefExperienceData = [
     {
       title: "Technical Support",
@@ -90,19 +90,17 @@ function App() {
 
   return (
     <div className="dark:bg-gradient-to-br from-black via-gray-900 to-black not-dark:bg-gradient-to-br not-dark:from-gray-200 not-dark:via-gray-400 not-dark:to-white">
-      {/* Navbar com menu fixo e responsivo */}
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md px-6 py-3 flex justify-between items-center">
         <h1 className="text-white text-xl sm:text-2xl font-bold font-mono tracking-widest">
           Takaki.S
         </h1>
 
-        {/* Menu Desktop */}
         <div className="hidden sm:flex gap-10 text-white font-semibold tracking-wide">
-          {["home", "About", "Experience", "Contact"].map((topic) => (
+          {["Home", "About","Experience","Certificate","Contact"].map((topic) => (
             <Navbar key={topic} topic={topic} />
           ))}
         </div>
-        {/* Botão para abrir menu mobile */}
+
         <button
           className="sm:hidden text-white transition-all duration-200"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -111,34 +109,32 @@ function App() {
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
 
-        {/* Menu Mobile */}
         {isMobileMenuOpen && (
           <div className="absolute top-full left-0 w-full backdrop-blur-md flex flex-col px-6 py-4 sm:hidden gap-4">
-            {["Home","About", "Experience", "Contact"].map((topic) => (
+            {["Home","About","Experience","Certificate","Contact"].map((topic) => (
               <Navbar key={topic} topic={topic} />
             ))}
           </div>
         )}
       </nav>
 
-      {/* Conteúdo principal com espaçamento superior para compensar navbar fixa */}
       <main className="pt-20">
-        {/* Seção Home */}
+
         <section id="home" className="flex justify-center items-center min-h-screen px-4">
           <Cardfront />
         </section>
 
-        {/* Seção About */}
-        <section
-          id="about"
-          className="min-h-screen flex flex-col items-center justify-center px-4 py-16 space-y-16"
-        >
+        <section id="about" className="min-h-screen flex flex-col items-center justify-center px-4 py-16 space-y-16">
           <SummaryDevOps reverse={false} />
         </section>
-
-        {/* Seção Experience - certificados e skills */}
+        {/*<section id='experience'>
+          <ExperienceCarousel/>
+        </section>*/}
+        <section id='experience' className='min-h-screen flex flex-col items-center justify-center px-4 py-16 space-y-16'>
+          <Knowledge reverse={true}/>
+        </section>
         <section
-          id="experience"
+          id="certificate"
           className="py-24 w-full text-white mx-auto px-6"
         >
           <div className="mx-auto w-full space-y-12">
