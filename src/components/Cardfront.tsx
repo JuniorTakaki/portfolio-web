@@ -4,7 +4,7 @@ const Cardfront = () => {
       <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between w-full px-4 sm:px-8 lg:px-24 gap-12">
 
         {/* Avatar - somente mobile */}
-        <div className="lg:hidden flex-shrink-0">
+        <div className="sm:hidden flex-shrink-0">
           <div className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-full bg-gradient-to-br from-purple-700 via-indigo-700 to-blue-700 p-[3px]">
             <div className="w-full h-full rounded-full overflow-hidden bg-gray-100 dark:bg-gray-800">
               <img

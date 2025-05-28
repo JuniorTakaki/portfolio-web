@@ -1,6 +1,6 @@
 const SummaryDevOps = ({ reverse = false }) => {
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 py-12">
+    <section className="w-full max-w-7xl mx-auto px-4 lg:px-15 py-12">
       <div
         className={`flex flex-col-reverse md:flex-row ${reverse ? 'md:flex-row-reverse' : ''
           } items-center gap-4`}
