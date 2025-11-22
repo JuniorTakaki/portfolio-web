@@ -10,7 +10,6 @@ export function Navbar({ topics }: NavbarProps) {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md px-6 py-3 flex justify-between items-center">
-      {/* Logo / Nome */}
       <h1 className="text-white text-xl sm:text-2xl font-bold font-mono tracking-widest">
     Takaki.S
   </h1>
