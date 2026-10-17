@@ -29,3 +29,42 @@
 .fade-out {
   animation: fadeOut 0.3s ease-in forwards;
 }
+
+.tech-grid {
+  background-color: #080609;
+  background-image:
+    linear-gradient(rgba(0, 163, 196, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 163, 196, 0.09) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+.section-rule {
+  border-top: 1px solid rgba(0, 163, 196, 0.2);
+}
+
+*:focus-visible {
+  outline: 2px solid rgba(103, 232, 249, 0.9);
+  outline-offset: 3px;
+}
+
+.credential-list {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 163, 196, 0.7) rgba(10, 10, 14, 0.7);
+}
+
+.credential-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.credential-list::-webkit-scrollbar-track {
+  background: rgba(10, 10, 14, 0.8);
+}
+
+.credential-list::-webkit-scrollbar-thumb {
+  background: rgba(0, 163, 196, 0.8);
+  border-radius: 9999px;
+}
+
+.credential-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(103, 232, 249, 0.9);
+}

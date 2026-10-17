@@ -42,7 +42,7 @@ export const ExperienceCarousel: React.FC = () => {
   return (
     
     <section className='w-10/12 mx-auto max-w-7xl py-12'>
-      <h2 className=" py-12 text-3xl md:text-4xl font-bold font-mono text-center hover:scale-x-102 transform transition-transform ease-out duration-300 bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 bg-clip-text text-transparent">
+      <h2 className=" py-12 text-3xl font-bold font-mono text-center text-white transition-transform duration-300 hover:scale-x-102 md:text-4xl">
         Experience
       </h2>
       <div className='max-w-lg mx-auto font-sans'>

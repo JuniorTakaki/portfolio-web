@@ -1,110 +1,102 @@
-import { BriefExperienceCard } from './components/briefExperience';
 import { Navbar } from "./components/navbar";
 import Introduction from './components/Introduction';
 import ContactSection from './components/ContactSection';
 import Cardfront from "./components/Cardfront";
-import { Rarity } from './components/Rarity';
 /*import  ExperienceCarousel  from './components/ExperienceCarousel';*/
 import Knowledge from './components/knowledge'
 import { SocialSidebar } from './components/sidebar';
 import './globals.css';
 import ProjectsCarousel from './components/ProjectsCarousel';
+import { CertificateGallery } from './components/CertificateGallery';
+import { AppliedSkills } from './components/AppliedSkills';
+import { MobileCredentialsHub } from './components/MobileCredentialsHub';
+import { useLanguage } from './context/LanguageContext';
 
 function App() {
-  const topics = ["Home", "Sobre", "Habilidades", "Certificados", "Projects"];
+  const { language, t } = useLanguage();
+  const topics = ["Home", "Sobre", "Habilidades", "Certificados", "Applied Skills", "Projects"];
 
 
   const briefExperienceData = [
     {
-      title: "Suporte Técnico",
-      description: "Google IT Support",
-      certificateImage: "/img/google0.jpg",
-      tags: [
-        { label: "Software", rarity: "common" as Rarity },
-        { label: "Hardware", rarity: "common" as Rarity },
-        { label: "CLI basic", rarity: "uncommon" as Rarity }
-      ]
+      title: language === 'pt-BR' ? "Suporte Técnico" : "Technical Support",
+      description: language === 'pt-BR' ? "Google IT Support" : "Google IT Support",
+      certificateImage: "/img/google_page-0001.jpg",
     },
     {
-      title: "Redes de Computadores",
+      title: language === 'pt-BR' ? "Redes de Computadores" : "Computer Networking",
       description: "Google IT Support",
       certificateImage: "/img/google1.jpg",
-      tags: [
-        { label: "TPC/IP", rarity: "common" as Rarity },
-        { label: "Network Troubleshooting", rarity: "common" as Rarity },
-        { label: "DNS & DHCP", rarity: "rare" as Rarity }
-      ]
     },
     {
-      title: "Sistemas Operacionais",
+      title: language === 'pt-BR' ? "Sistemas Operacionais" : "Operating Systems",
       description: "Google IT Support",
       certificateImage: "/img/google2.jpg",
-      tags: [
-        { label: "Windows", rarity: "common" as Rarity },
-        { label: "Linux", rarity: "rare" as Rarity },
-        { label: "Powershell", rarity: "rare" as Rarity },
-      ]
     },
     {
-      title: "SysAdmin e Infraestrutura de TI",
+      title: language === 'pt-BR' ? "SysAdmin e Infraestrutura de TI" : "SysAdmin and IT Infrastructure",
       description: "Google IT Support",
       certificateImage: "/img/google3.jpg",
-      tags: [
-        { label: "Infrastructure", rarity: "common" as Rarity },
-        { label: "SysAdmin", rarity: "uncommon" as Rarity },
-        { label: "AD", rarity: "rare" as Rarity },
-        { label: "Cloud Computing", rarity: "epic" as Rarity }
-      ]
     },
     {
-      title: "Segurança e Cybersegurança",
+      title: language === 'pt-BR' ? "Segurança e Cybersegurança" : "Security and Cybersecurity",
       description: "Google IT Support",
       certificateImage: "/img/google4.jpg",
-      tags: [
-        { label: "Cryptography", rarity: "common" as Rarity },
-        { label: "Security Threats", rarity: "uncommon" as Rarity },
-        { label: "Network Security", rarity: "rare" as Rarity },
-        { label: "AAA", rarity: "rare" as Rarity },
-      ]
     },
     {
       title: "Windows Server 2025",
       description: "Windows Server",
       certificateImage: "/img/ws2016.png",
-      tags: [
-        { label: "AD", rarity: "uncommon" as Rarity },
-        { label: "FTP", rarity: "uncommon" as Rarity },
-        { label: "WDS", rarity: "rare" as Rarity },
-        { label: "DHCP", rarity: "rare" as Rarity },
-      ]
-    },
-    {
-      title: "ADDS",
-      description: "Windows Server 2025",
-      certificateImage: "img/credencial.png",
-      tags: [
-        { label: "AD", rarity: "uncommon" as Rarity },
-        { label: "GPO", rarity: "uncommon" as Rarity },
-        { label: "Admin Center", rarity: "rare" as Rarity },
-        { label: "Security", rarity: "rare" as Rarity },
-      ]
     },
     {
       title: "Cloud & Virtualization",
-      description: "VMs concepts",
-      tags: [
-        { label: "VirtualBox", rarity: "uncommon" as Rarity },
-        { label: "Vmware", rarity: "uncommon" as Rarity },
-        { label: "Hyper-V", rarity: "rare" as Rarity },
-        { label: "EC2", rarity: "rare" as Rarity },
-        { label: "Azure VM", rarity: "rare" as Rarity },
-      ]
+      description: language === 'pt-BR' ? "Conceitos de máquinas virtuais" : "VM concepts",
+    },
+  ];
+
+  const appliedSkills = [
+    {
+      title: 'ADDS',
+      description: language === 'pt-BR'
+        ? 'Implementação prática de Active Directory Domain Services em ambiente Windows Server, com foco em estrutura de domínio, políticas e administração segura.'
+        : 'Practical implementation of Active Directory Domain Services in a Windows Server environment, focused on domain structure, policies and secure administration.',
+      officialUrl: 'https://learn.microsoft.com/api/credentials/share/en-us/JuniorTakaki/CA17A3B7367C14BF?sharingId=A6458A544F8E1017',
+      category: 'Identity & access',
+      technologies: ['Windows Server', 'Active Directory', 'Microsoft Entra'],
+      providerInitials: 'MS',
+      providerName: 'Microsoft Learn',
+      providerIcon: 'https://learn.microsoft.com/en-us/media/profile/zero-state-applied-skills.svg?branch=main',
+    },
+    {
+      title: 'Create and manage automated processes by using Power Automate',
+      description: language === 'pt-BR'
+        ? 'Automação de processos com Microsoft Power Automate, conectando serviços e criando fluxos para reduzir tarefas manuais e melhorar a eficiência operacional.'
+        : 'Process automation with Microsoft Power Automate, connecting services and building flows to reduce manual work and improve operational efficiency.',
+      officialUrl: 'https://learn.microsoft.com/api/credentials/share/en-us/JuniorTakaki/55CE54178F0F4513?sharingId=A6458A544F8E1017',
+      category: 'Business process automation',
+      technologies: ['Power Automate', 'Cloud flows', 'Process automation'],
+      providerInitials: 'MS',
+      providerName: 'Microsoft Learn',
+      providerIcon: 'https://learn.microsoft.com/en-us/media/profile/zero-state-applied-skills.svg?branch=main',
+    },
+    {
+      title: 'Cisco Networking Academy',
+      description: language === 'pt-BR'
+        ? 'Credencial verificada pela Credly que representa conhecimentos práticos em redes e tecnologias Cisco.'
+        : 'Credly-verified credential representing practical knowledge of networking and Cisco technologies.',
+      officialUrl: 'https://www.credly.com/badges/a5fa18a8-a306-4d9f-93b7-ac0d53c347da/public_url',
+      category: 'Networking',
+      technologies: ['Cisco', 'Networking', 'Credly'],
+      providerInitials: 'CS',
+      providerName: 'Cisco / Credly',
     },
   ];
 
   type ProjectData = {
     title: string;
     description: string;
+    context: string;
+    status: string;
     imageUrl: string;
     projectUrl: string;
     tags: string[];
@@ -112,63 +104,65 @@ function App() {
 
   const projects: ProjectData[] = [
     {
-      title: 'Sistema de Inventário TI',
-      description: 'Um sistema para gerenciar e controlar o inventário de equipamentos de TI.',
-      imageUrl: 'img/inv.jpeg',
+      title: language === 'pt-BR' ? 'Sistema de Inventário TI' : 'IT Inventory System',
+      description: language === 'pt-BR' ? 'Um sistema para gerenciar e controlar o inventário de equipamentos de TI.' : 'A system to manage and control IT equipment inventory.',
+      context: language === 'pt-BR' ? 'Centralizar ativos e tornar o controle de equipamentos mais rastreável.' : 'Centralize assets and make equipment tracking more reliable.',
+      status: language === 'pt-BR' ? 'Em evolução' : 'In progress',
+      imageUrl: '/img/inv.jpeg',
       projectUrl: 'https://github.com/JuniorTakaki/inventory-TI.git',
       tags: ['React', 'Node.js', 'MongoDB']
     },
     {
-      title: 'Projeto de Portfólio',
-      description: 'Um site de portfólio para exibir meus projetos.',
-      imageUrl: 'https://via.placeholder.com/400',
-      projectUrl: 'https://github.com/usuario/meu-portfolio',
-      tags: ['Next.js', 'Tailwind CSS', 'TypeScript']
+      title: language === 'pt-BR' ? 'Projeto de Portfólio' : 'Portfolio Website',
+      description: language === 'pt-BR' ? 'Um site de portfólio para exibir meus projetos.' : 'A portfolio website to showcase my projects.',
+      context: language === 'pt-BR' ? 'Apresentar projetos, infraestrutura e evolução técnica em uma experiência responsiva.' : 'Showcase projects, infrastructure and technical growth through a responsive experience.',
+      status: language === 'pt-BR' ? 'Publicado' : 'Published',
+      imageUrl: '/img/experiencepic.svg',
+      projectUrl: 'https://github.com/JuniorTakaki/portfolio-web',
+      tags: ['React', 'TypeScript', 'Tailwind CSS']
     },
   ];
 
   return (
-    <div className="container mx-auto max-w-full bg-gradient-to-br from-black via-gray-900 to-black">
+    <div className="tech-grid relative min-h-screen overflow-hidden text-white">
       <Navbar topics={topics} />
       <SocialSidebar />
-      <main className="pt-20">
+      <main className="relative z-10 pt-20">
         <section
           id="home"
           className="flex items-center justify-center"
         >
           <Cardfront />
         </section>
-        <section id="about" className=" flex flex-col items-center justify-center px-4 py-16 space-y-16">
+        <section id="about" className="section-rule flex scroll-mt-20 flex-col items-center justify-center space-y-16 px-4 py-16 lg:pr-24 lg:py-24">
           <Introduction reverse={false} />
         </section>
         {/*<section id='experience'>
           <ExperienceCarousel/>
         </section>*/}
 
-        <section id='experience' className='flex flex-col items-center justify-center px-4 py-16 space-y-16'>
+        <section id='habilidades' className='section-rule flex scroll-mt-20 flex-col items-center justify-center space-y-16 px-4 py-16 lg:pr-24 lg:py-24'>
           <Knowledge reverse={true} />
         </section>
+        <MobileCredentialsHub certificates={briefExperienceData} appliedSkills={appliedSkills} />
         <section
           id="certificate"
-          className="py-24 w-full  text-white mx-auto">
+          className="section-rule mx-auto hidden w-full scroll-mt-20 py-24 text-white md:block">
           <div className="mx-auto w-full space-y-12">
-            <h2 className="text-3xl md:text-4xl font-bold font-mono text-center bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 bg-clip-text text-transparent">
-              Certificados
-            </h2>
+            <div className="mx-auto w-11/12 max-w-7xl border-l-2 border-cyan-400 pl-5">
+              <p className="mb-3 font-mono text-xs uppercase tracking-[0.35em] text-cyan-300/70">{t('proofOfWork')} / 01</p>
+              <h2 className="text-3xl font-bold text-white md:text-5xl">
+                {t('certificateSection')}
+              </h2>
+              <p className="mt-3 max-w-xl text-sm text-sky-100/55">{t('certificateDescription')}</p>
+            </div>
 
-            <ul className="mx-auto w-10/12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 list-none">
-              {briefExperienceData.map((item, index) => (
-                <BriefExperienceCard
-                  key={index}
-                  title={item.title}
-                  description={item.description}
-                  certificateImage={item.certificateImage}
-                  tags={item.tags}
-                />
-              ))}
-            </ul>
+            <CertificateGallery items={briefExperienceData} />
           </div>
         </section>
+        <div className="hidden md:block">
+          <AppliedSkills items={appliedSkills} />
+        </div>
         <section>
           <ProjectsCarousel items={projects} />
         </section>

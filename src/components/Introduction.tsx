@@ -1,41 +1,50 @@
+import { useLanguage } from '../context/LanguageContext';
+
 const Introduction = ({ reverse = false }) => {
+    const { language, t } = useLanguage();
     return (
-        <section className="w-full max-w-7xl mx-auto px-4 lg:px-15 py-12">
+        <section className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
             <div
                 className={`flex flex-col-reverse md:flex-row ${reverse ? 'md:flex-row-reverse' : ''} items-center gap-4`}>
-                <div className="w-full md:w-1/2 flex justify-center">
-                    <img
-                        src="/img/devpro.svg"
-                        alt="Ilustração de um profissional de tecnologia"
-                        className="max-w-xs sm:max-w-sm md:max-w-md h-auto drop-shadow-lg drop-shadow-indigo-600"
-                    />
+                <div className="flex w-full justify-center md:w-1/2">
+                    <div className="relative w-full max-w-md overflow-hidden border border-cyan-300/30 bg-[#0d0a14] p-2">
+                        <img
+                            src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=85"
+                            alt={language === 'pt-BR' ? 'Servidores em um data center' : 'Servers inside a data center'}
+                            className="h-64 w-full object-cover opacity-85 transition-transform duration-700 hover:scale-105 sm:h-80"
+                            loading="lazy"
+                        />
+                        <span className="absolute bottom-5 left-5 border border-cyan-300/40 bg-black/80 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.22em] text-cyan-200">
+                            infrastructure / 01
+                        </span>
+                    </div>
                 </div>
 
-                <div className="w-full md:w-1/2 space-y-5 text-gray-200 font-semibold">
-                    <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-center md:text-left bg-gradient-to-r from-purple-700 via-indigo-400 to-blue-400 bg-clip-text text-transparent">
-                        Sobre
+                <div className="w-full space-y-5 font-semibold text-gray-200 md:w-1/2">
+                    <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-center text-white md:text-left">
+                        {t('aboutTitle')}
                     </h2>
 
                     <p className="text-base sm:text-lg leading-relaxed text-center md:text-left">
-                        Formado em Análise de Sistemas, e cursando
-                        <span className="bg-gradient-to-r from-purple-600 via-indigo-400 to-blue-300 bg-clip-text text-transparent"> Engenharia de Software
-                        </span> e pós-graduação em 
-                        <span className="text-transparent bg-gradient-to-r from-blue-300 via-indigo-400 to-purple-600 bg-clip-text"> Gestão de TI</span>
-                        , tenho uma visão que une arquitetura técnica e estratégia.
+                        {language === 'pt-BR' ? 'Formado em Análise de Sistemas, e cursando' : 'With a degree in Systems Analysis and currently pursuing'}
+                        <span className="text-cyan-300"> Engenharia de Software
+                        </span>{language === 'pt-BR' ? ' e pós-graduação em ' : ' and a postgraduate degree in '}
+                        <span className="text-cyan-300"> Gestão de TI</span>
+                        {language === 'pt-BR' ? ', tenho uma visão que une arquitetura técnica e estratégia.' : ', I combine technical architecture with business strategy.'}
                     </p>
 
                     <p className="text-base sm:text-lg leading-relaxed text-center md:text-left">
-                        Minha carreira começou no suporte N1, evoluindo em 7 meses para a automação de deployments com
-                        <span className="bg-gradient-to-r from-blue-300 via-indigo-400 to-purple-600 bg-clip-text text-transparent"> WDS e MDT</span>
-                        . Essa base me impulsionou para o universo DevOps, explorando 
-                        <span className="text-transparent bg-gradient-to-r from-purple-600 via-indigo-400 to-blue-300 bg-clip-text"> Docker e pipelines de CI/CD</span>.
+                        {language === 'pt-BR' ? 'Minha carreira começou no suporte N1, evoluindo em 7 meses para a automação de deployments com' : 'My career started in N1 support and evolved within seven months into deployment automation with'}
+                        <span className="text-cyan-300"> WDS e MDT</span>
+                        {language === 'pt-BR' ? '. Essa base me impulsionou para o universo DevOps, explorando ' : '. This foundation led me into DevOps, exploring '}
+                        <span className="text-cyan-300"> Docker e pipelines de CI/CD</span>.
                     </p>
                     
                     <p className="text-base sm:text-lg leading-relaxed text-center md:text-left">
-                        Hoje, meu foco é consolidar minha carreira em
-                        <span className="bg-gradient-to-r from-purple-600 via-indigo-400 to-blue-300 bg-clip-text text-transparent"> DevOps e Cloud
+                        {language === 'pt-BR' ? 'Hoje, meu foco é consolidar minha carreira em' : 'Today, my focus is building my career in'}
+                        <span className="text-cyan-300"> DevOps e Cloud
                         </span>, aprofundando em 
-                        <span className="text-transparent bg-gradient-to-r from-blue-300 via-indigo-400 to-purple-600 bg-clip-text"> Infraestrutura como Código (IaC) </span>
+                        <span className="text-cyan-300"> Infraestrutura como Código (IaC) </span>
                         para criar soluções eficientes e escaláveis.
                     </p>
                 </div>

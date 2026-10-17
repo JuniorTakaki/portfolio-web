@@ -1,11 +1,11 @@
-import React from 'react';
 import { ProjectCard } from './ProjectCard';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
+import { useLanguage } from '../context/LanguageContext';
 
-type ProjectData = {
+export type ProjectData = {
   title: string;
   description: string;
+  context: string;
+  status: string;
   imageUrl: string;
   projectUrl: string;
   tags: string[];
@@ -15,49 +15,37 @@ type ProjectsCarouselProps = {
   items: ProjectData[];
 };
 
-const ProjectsCarousel: React.FC<ProjectsCarouselProps> = ({ items }) => {
+const ProjectsCarousel = ({ items }: ProjectsCarouselProps) => {
+  const { t } = useLanguage();
   return (
-    <section id="projects" className="py-24 w-full text-white mx-auto">
-      <div className="mx-auto w-full space-y-12">
-        <h2 className="text-3xl md:text-4xl font-bold font-mono text-center hover:scale-x-102 transform transition-transform ease-out duration-300 bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 bg-clip-text text-transparent">
-          Meus Projetos
-        </h2>
+    <section id="projects" className="section-rule w-full px-4 py-16 text-white sm:py-24 md:pr-24">
+      <div className="mx-auto w-full max-w-7xl md:w-11/12">
+        <div className="mb-8 flex flex-col gap-4 border-l-2 border-cyan-400 pl-4 sm:mb-12 sm:pl-5 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.35em] text-cyan-300/70 sm:text-xs">
+              {t('selectedWork')}
+            </p>
+            <h2 className="font-mono text-3xl font-bold text-white sm:text-5xl">{t('projects')}</h2>
+          </div>
+          <p className="max-w-sm text-sm leading-6 text-sky-100/55">{t('projectsDescription')}</p>
+        </div>
 
-        <Swiper
-          modules={[Autoplay]}
-          loop={true}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-          className="w-10/12 pb-12"
-          breakpoints={{
-            640: {
-              slidesPerView: 1,
-              spaceBetween: 20,
-            },
-            768: {
-              slidesPerView: 2,
-              spaceBetween: 40,
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 50,
-            },
-          }}
-        >
+        <div className="grid gap-4 md:grid-cols-[minmax(0,1.35fr)_minmax(18rem,0.65fr)] md:gap-5">
           {items.map((item, index) => (
-            <SwiperSlide key={index} className="self-stretch">
-              <ProjectCard
-                title={item.title}
-                description={item.description}
-                imageUrl={item.imageUrl}
-                projectUrl={item.projectUrl}
-                tags={item.tags}
-              />
-            </SwiperSlide>
+            <ProjectCard
+              key={item.title}
+              index={index}
+              featured={index === 0}
+              title={item.title}
+              description={item.description}
+              context={item.context}
+              status={item.status}
+              imageUrl={item.imageUrl}
+              projectUrl={item.projectUrl}
+              tags={item.tags}
+            />
           ))}
-        </Swiper>
+        </div>
       </div>
     </section>
   );

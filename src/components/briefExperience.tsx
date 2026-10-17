@@ -25,11 +25,11 @@ export const BriefExperienceCard = ({
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
 
   return (
-    <div className="text-white p-4 w-full h-full max-w-md mx-auto transition-all duration-300 ">
+    <div className="mx-auto h-full w-full max-w-md rounded-2xl border border-sky-300/15 bg-white/[0.04] p-5 text-white transition-all duration-300 hover:border-cyan-300/30">
       <button
         className="flex items-center justify-between w-full text-left"
       >
-        <span className="relative font-semibold text-lg  text-white  hover:scale-110 duration-300">
+        <span className="relative text-lg font-semibold text-white transition-colors duration-300 hover:text-cyan-200">
           {title}
           <span/>
         </span>
@@ -41,7 +41,7 @@ export const BriefExperienceCard = ({
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden mt-2 text-sm text-gray-300"
+            className="mt-2 overflow-hidden text-sm text-sky-100/65"
           >
             <p>{description}</p>
 
@@ -49,7 +49,7 @@ export const BriefExperienceCard = ({
               <img
                 src={certificateImage}
                 alt={`Certificado de ${title}`}
-                className="mt-2 rounded-lg shadow-md cursor-pointer"
+                className="mt-3 cursor-pointer rounded-lg border border-sky-300/10"
                 onClick={() => setFullscreenImage(certificateImage)}
               />
             )}

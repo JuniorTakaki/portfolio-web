@@ -14,7 +14,7 @@ interface FullscreenimageModalProps {
         <img
           src={imageUrl}
           alt="Certificado em tela cheia"
-          className="max-w-full max-h-full rounded-lg shadow-xl"
+          className="max-w-full max-h-full rounded-lg"
         />
       </div>
     );
