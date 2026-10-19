@@ -6,11 +6,27 @@ export interface CertificateItem {
   title: string;
   description?: string;
   certificateImage?: string;
+  certificatePdf?: string;
 }
 
 interface CertificateGalleryProps {
   items: CertificateItem[];
 }
+
+const PdfPreview = ({ url, title, className }: { url: string; title: string; className: string }) => (
+  <div className={`relative overflow-hidden border border-white/10 bg-white ${className}`}>
+    <object data={url} type="application/pdf" aria-label={`PDF do certificado de ${title}`} className="absolute inset-0 h-full w-full">
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex h-full items-center justify-center bg-[#071c26] p-2 text-center font-mono text-[9px] uppercase tracking-[0.12em] text-cyan-200"
+      >
+        Abrir PDF
+      </a>
+    </object>
+  </div>
+);
 
 export const CertificateGallery = ({ items }: CertificateGalleryProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -86,7 +102,13 @@ export const CertificateGallery = ({ items }: CertificateGalleryProps) => {
                         : 'border-white/10 opacity-70 hover:border-sky-300/30 hover:opacity-100'
                     }`}
                   >
-                    {item.certificateImage && !isBroken ? (
+                    {item.certificatePdf ? (
+                      <PdfPreview
+                        url={item.certificatePdf}
+                        title={item.title}
+                        className={`aspect-[1.414/1] w-full ${isActive ? 'max-h-44' : 'max-h-32'}`}
+                      />
+                    ) : item.certificateImage && !isBroken ? (
                       <img
                         src={item.certificateImage}
                         alt={`Certificado de ${item.title}`}
@@ -111,7 +133,19 @@ export const CertificateGallery = ({ items }: CertificateGalleryProps) => {
             </div>
 
             <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
-              <span className="font-mono text-[10px] text-sky-100/45">Google IT Support · {t('certification')}</span>
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="font-mono text-[10px] text-sky-100/45">{activeItem.title} · {t('certification')}</span>
+                {activeItem.certificatePdf && (
+                  <a
+                    href={activeItem.certificatePdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-mono text-[10px] uppercase tracking-[0.12em] text-cyan-200 hover:text-white"
+                  >
+                    {t('openPdf')}
+                  </a>
+                )}
+              </div>
               <div className="flex gap-2">
                 <button
                   type="button"
@@ -174,7 +208,13 @@ export const CertificateGallery = ({ items }: CertificateGalleryProps) => {
           </span>
         </div>
 
-        {activeItem.certificateImage && !brokenImages[activeIndex] ? (
+        {activeItem.certificatePdf ? (
+          <PdfPreview
+            url={activeItem.certificatePdf}
+            title={activeItem.title}
+            className="aspect-[1.414/1] w-full max-h-48"
+          />
+        ) : activeItem.certificateImage && !brokenImages[activeIndex] ? (
           <img
             src={activeItem.certificateImage}
             alt={`Certificado de ${activeItem.title}`}
@@ -189,6 +229,17 @@ export const CertificateGallery = ({ items }: CertificateGalleryProps) => {
         )}
 
         <p className="mt-3 line-clamp-2 text-xs leading-5 text-sky-100/60">{activeItem.description}</p>
+
+        {activeItem.certificatePdf && (
+          <a
+            href={activeItem.certificatePdf}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex border border-cyan-300/40 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-cyan-200"
+          >
+            {t('openPdf')}
+          </a>
+        )}
 
         <div className="mt-4 flex items-center justify-between gap-2">
           <button

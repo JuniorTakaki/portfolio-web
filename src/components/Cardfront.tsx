@@ -53,9 +53,8 @@ const Cardfront = () => {
             </p>
             <div className="mt-10 grid max-w-xl grid-cols-3 gap-3 text-left">
               {[
-                ['03+', t('yearsBuilding')],
-                ['15+', t('projectsDelivered')],
-                ['24/7', t('curiosity')],
+                ['02+', t('yearsBuilding')],
+                // ['0+', t('projectsDelivered')],
               ].map(([value, label]) => (
                 <div key={label} className="border-l border-cyan-400/40 pl-3">
                   <p className="font-mono text-xl text-white sm:text-2xl">{value}</p>

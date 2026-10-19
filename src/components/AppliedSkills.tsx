@@ -23,7 +23,7 @@ export const AppliedSkills = ({ items }: AppliedSkillsProps) => {
         <div className="max-w-2xl">
           <p className="mb-3 font-mono text-xs uppercase tracking-[0.35em] text-cyan-300/70">{t('handsOn')}</p>
           <h2 className="border-l-2 border-cyan-400 pl-3 font-mono text-2xl font-bold text-white md:pl-5 md:text-5xl">
-            Applied Skills
+            {t('appliedTitle')}
           </h2>
         </div>
         <p className="max-w-sm text-sm leading-relaxed text-sky-100/55">

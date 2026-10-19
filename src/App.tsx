@@ -2,8 +2,7 @@ import { Navbar } from "./components/navbar";
 import Introduction from './components/Introduction';
 import ContactSection from './components/ContactSection';
 import Cardfront from "./components/Cardfront";
-/*import  ExperienceCarousel  from './components/ExperienceCarousel';*/
-import Knowledge from './components/knowledge'
+import Knowledge from './components/knowledge';
 import { SocialSidebar } from './components/sidebar';
 import './globals.css';
 import ProjectsCarousel from './components/ProjectsCarousel';
@@ -14,7 +13,7 @@ import { useLanguage } from './context/LanguageContext';
 
 function App() {
   const { language, t } = useLanguage();
-  const topics = ["Home", "Sobre", "Habilidades", "Certificados", "Applied Skills", "Projects"];
+  const topics = ["Home", "Sobre", "Habilidades", "Certificados", "Competência Aplicada", "Projects"];
 
 
   const briefExperienceData = [
@@ -23,6 +22,11 @@ function App() {
       description: language === 'pt-BR' ? "Google IT Support" : "Google IT Support",
       certificateImage: "/img/google_page-0001.jpg",
     },
+    {
+      title: "Fortinet NSE 3 Certified in Cybersecurity",
+      description: "Fortinet NSE 3",
+      certificateImage: "/img/fortinet-nse3.png",
+    }, 
     {
       title: language === 'pt-BR' ? "Redes de Computadores" : "Computer Networking",
       description: "Google IT Support",
@@ -44,14 +48,11 @@ function App() {
       certificateImage: "/img/google4.jpg",
     },
     {
-      title: "Windows Server 2025",
+      title: "Windows Server 2022",
       description: "Windows Server",
-      certificateImage: "/img/ws2016.png",
+      certificateImage: "/img/windows-server-2022.jpg",
     },
-    {
-      title: "Cloud & Virtualization",
-      description: language === 'pt-BR' ? "Conceitos de máquinas virtuais" : "VM concepts",
-    },
+      
   ];
 
   const appliedSkills = [
@@ -137,10 +138,6 @@ function App() {
         <section id="about" className="section-rule flex scroll-mt-20 flex-col items-center justify-center space-y-16 px-4 py-16 lg:pr-24 lg:py-24">
           <Introduction reverse={false} />
         </section>
-        {/*<section id='experience'>
-          <ExperienceCarousel/>
-        </section>*/}
-
         <section id='habilidades' className='section-rule flex scroll-mt-20 flex-col items-center justify-center space-y-16 px-4 py-16 lg:pr-24 lg:py-24'>
           <Knowledge reverse={true} />
         </section>

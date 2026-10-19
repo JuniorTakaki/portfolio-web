@@ -40,7 +40,25 @@ export const MobileCredentialsHub = ({ certificates, appliedSkills }: MobileCred
             {isCertificatesView
               ? certificates.map((item, index) => (
                 <article key={item.title} className="grid grid-cols-[5.5rem_minmax(0,1fr)] gap-3 border border-sky-300/25 bg-[#071c26] p-3">
-                  {item.certificateImage ? (
+                  {item.certificatePdf ? (
+                    <div className="relative h-24 w-[5.5rem] overflow-hidden border border-white/10 bg-[#071c26]">
+                      <object
+                        data={item.certificatePdf}
+                        type="application/pdf"
+                        aria-label={`PDF do certificado de ${item.title}`}
+                        className="absolute inset-0 h-full w-full"
+                      >
+                        <a
+                          href={item.certificatePdf}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex h-full items-center justify-center p-1 text-center font-mono text-[8px] uppercase tracking-[0.08em] text-cyan-200"
+                        >
+                          {t('openPdf')}
+                        </a>
+                      </object>
+                    </div>
+                  ) : item.certificateImage ? (
                     <img
                       src={item.certificateImage}
                       alt={`${t('certificateProof')} — ${item.title}`}
@@ -62,6 +80,16 @@ export const MobileCredentialsHub = ({ certificates, appliedSkills }: MobileCred
                     <span className="mt-2 block font-mono text-[9px] uppercase tracking-[0.16em] text-cyan-200/60">
                       {t('certificateProof')}
                     </span>
+                    {item.certificatePdf && (
+                      <a
+                        href={item.certificatePdf}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-2 inline-block font-mono text-[9px] uppercase tracking-[0.12em] text-cyan-200"
+                      >
+                        {t('openPdf')}
+                      </a>
+                    )}
                   </div>
                 </article>
               ))
