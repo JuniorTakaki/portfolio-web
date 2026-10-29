@@ -10,12 +10,13 @@ type ProjectCardProps = {
   context: string;
   status: string;
   imageUrl: string;
+  imageFit?: 'cover' | 'contain';
   projectUrl: string; // Link para o projeto (GitHub, site, etc.)
   tags: string[]; // Lista de tecnologias usadas
 };
 
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ index, featured = false, title, description, context, status, imageUrl, projectUrl, tags }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({ index, featured = false, title, description, context, status, imageUrl, imageFit = 'cover', projectUrl, tags }) => {
   const { t } = useLanguage();
   return (
     <article className={`group flex h-full flex-col overflow-hidden border bg-[#071c26] transition-colors duration-300 hover:border-cyan-300/55 ${
@@ -24,7 +25,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ index, featured = fals
       <div className={`relative overflow-hidden border-b border-sky-300/15 bg-sky-950/40 ${
         featured ? 'h-56 sm:h-72' : 'h-44 sm:h-48'
       }`}>
-        <img className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" src={imageUrl} alt={`${t('projectImage')} ${title}`} />
+        <img
+          className={`h-full w-full transition-transform duration-500 ${
+            imageFit === 'contain' ? 'object-contain p-3' : 'object-cover group-hover:scale-105'
+          }`}
+          src={imageUrl}
+          alt={`${t('projectImage')} ${title}`}
+        />
         <span className="absolute left-3 top-3 border border-cyan-300/30 bg-[#071c26]/90 px-2 py-1 font-mono text-[10px] tracking-[0.18em] text-cyan-200">
           0{index + 1} / {featured ? t('featuredProject') : t('projectLabel')}
         </span>

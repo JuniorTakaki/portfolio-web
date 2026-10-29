@@ -18,15 +18,25 @@ function App() {
 
   const briefExperienceData = [
     {
-      title: language === 'pt-BR' ? "Suporte Técnico" : "Technical Support",
-      description: language === 'pt-BR' ? "Google IT Support" : "Google IT Support",
-      certificateImage: "/img/google_page-0001.jpg",
-    },
-    {
       title: "Fortinet NSE 3 Certified in Cybersecurity",
       description: "Fortinet NSE 3",
       certificateImage: "/img/fortinet-nse3.png",
     }, 
+    {
+      title: "LFC108: Cybersecurity Essentials",
+      description: "The linux foundation",
+      certificateImage: "/img/lfc108.png",
+    }, 
+     {
+      title: "FD121: Developing Secure Software",
+      description: "The linux foundation",
+      certificateImage: "/img/lfd121.png",
+    }, 
+    {
+      title: language === 'pt-BR' ? "Suporte Técnico" : "Technical Support",
+      description: language === 'pt-BR' ? "Google IT Support" : "Google IT Support",
+      certificateImage: "/img/google_page-0001.jpg",
+    },
     {
       title: language === 'pt-BR' ? "Redes de Computadores" : "Computer Networking",
       description: "Google IT Support",
@@ -99,29 +109,22 @@ function App() {
     context: string;
     status: string;
     imageUrl: string;
+    imageFit?: 'cover' | 'contain';
     projectUrl: string;
     tags: string[];
   };
 
   const projects: ProjectData[] = [
     {
-      title: language === 'pt-BR' ? 'Sistema de Inventário TI' : 'IT Inventory System',
-      description: language === 'pt-BR' ? 'Um sistema para gerenciar e controlar o inventário de equipamentos de TI.' : 'A system to manage and control IT equipment inventory.',
-      context: language === 'pt-BR' ? 'Centralizar ativos e tornar o controle de equipamentos mais rastreável.' : 'Centralize assets and make equipment tracking more reliable.',
-      status: language === 'pt-BR' ? 'Em evolução' : 'In progress',
-      imageUrl: '/img/inv.jpeg',
-      projectUrl: 'https://github.com/JuniorTakaki/inventory-TI.git',
-      tags: ['React', 'Node.js', 'MongoDB']
-    },
-    {
-      title: language === 'pt-BR' ? 'Projeto de Portfólio' : 'Portfolio Website',
+      title: language === 'pt-BR' ? 'Lab de Automação e Segurança' : 'Security & Automation Lab',
       description: language === 'pt-BR' ? 'Um site de portfólio para exibir meus projetos.' : 'A portfolio website to showcase my projects.',
-      context: language === 'pt-BR' ? 'Apresentar projetos, infraestrutura e evolução técnica em uma experiência responsiva.' : 'Showcase projects, infrastructure and technical growth through a responsive experience.',
+      context: language === 'pt-BR' ? 'Apresentar projetos, focado em boas práticas de segurança no desenvolvimento.' : 'Showcase projects, focused on secure development best practices.',
       status: language === 'pt-BR' ? 'Publicado' : 'Published',
-      imageUrl: '/img/experiencepic.svg',
-      projectUrl: 'https://github.com/JuniorTakaki/portfolio-web',
-      tags: ['React', 'TypeScript', 'Tailwind CSS']
-    },
+      imageUrl: '/img/lfd121.png',
+      imageFit: 'contain',
+      projectUrl: 'https://github.com/JuniorTakaki/lab-seguranca-lfd121',
+      tags: ['Python']
+    }
   ];
 
   return (

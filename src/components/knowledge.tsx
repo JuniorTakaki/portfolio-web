@@ -26,27 +26,24 @@ const Knowledge = ({ reverse = false }) => {
                     </h2>
 
                     <p className="text-base sm:text-lg leading-relaxed text-center md:text-left">
-                        {language === 'pt-BR' ? 'Experiência em cloud com ' : 'Cloud experience with '}
-                        <span className="text-cyan-300"> AWS (EC2) e Azure (VMs)
-                        </span>, com foco atual na certificação AZ-900 e habilidade na configuração de políticas e dispositivos via 
-                        <span className="text-cyan-300"> Microsoft Intune</span>.
+                        {language === 'pt-BR' ? 'Especialização em arquitetura de infraestrutura e Cloud com' : 'Specialization in infrastructure architecture and Cloud with'}
+                        <span className="text-cyan-300"> Azure</span>
+                        {language === 'pt-BR' ? ', além de sólida bagagem e familiaridade com' : ', alongside solid background and familiarity with'}
+                        <span className="text-cyan-300"> AWS</span>.
                     </p>
 
                     <p className="text-base sm:text-lg leading-relaxed text-center md:text-left">
-                        Vivência em automação com
-                        <span className="text-cyan-300"> n8n e Python
-                        </span>, conteinerização de aplicações com 
-                        <span className="text-cyan-300"> Docker </span>
-                        e automação de deployments on-premise com
-                        <span className="text-cyan-300"> WDS e MDT</span>.
+                        {language === 'pt-BR' ? 'Domínio na administração de ambientes' : 'Mastery in administration of'}
+                        <span className="text-cyan-300"> Linux e Windows Server</span>
+                        {language === 'pt-BR' ? ', estruturação de redes corporativas, firewalls e virtualização avançada.' : ', corporate networking, firewalls, and advanced virtualization.'}
                     </p>
                     
                     <p className="text-base sm:text-lg leading-relaxed text-center md:text-left">
-                        Conhecimento em segurança com a ferramenta 
-                        <span className="text-cyan-300"> Wazuh
-                        </span>, gerenciamento de políticas com 
-                        <span className="text-cyan-300"> GPO </span>
-                        e base sólida em virtualização para criação de laboratórios de estudo.
+                        {language === 'pt-BR' ? 'Foco em automação de processos com' : 'Focus on process automation with'}
+                        <span className="text-cyan-300"> Python</span>
+                        {language === 'pt-BR' ? ', monitoramento de performance com' : ', performance monitoring with'}
+                        <span className="text-cyan-300"> Grafana e Zabbix</span>
+                        {language === 'pt-BR' ? ', e conteinerização via Docker.' : ', and containerization via Docker.'}
                     </p>
                 </div>
             </div>

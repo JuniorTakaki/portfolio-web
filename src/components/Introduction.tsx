@@ -26,26 +26,24 @@ const Introduction = ({ reverse = false }) => {
                     </h2>
 
                     <p className="text-base sm:text-lg leading-relaxed text-center md:text-left">
-                        {language === 'pt-BR' ? 'Formado em Análise de Sistemas, e cursando' : 'With a degree in Systems Analysis and currently pursuing'}
-                        <span className="text-cyan-300"> Engenharia de Software
-                        </span>{language === 'pt-BR' ? ' e pós-graduação em ' : ' and a postgraduate degree in '}
-                        <span className="text-cyan-300"> Gestão de TI</span>
-                        {language === 'pt-BR' ? ', tenho uma visão que une arquitetura técnica e estratégia.' : ', I combine technical architecture with business strategy.'}
+                        {language === 'pt-BR' ? 'Cursando' : 'Currently pursuing'}
+                        <span className="text-cyan-300"> Engenharia de Software</span>
+                        {language === 'pt-BR' ? ', com formação em Análise de Sistemas e pós-graduação em ' : ', with a degree in Systems Analysis and a postgraduate degree in '}
+                        <span className="text-cyan-300"> Gestão de TI</span>.
                     </p>
 
                     <p className="text-base sm:text-lg leading-relaxed text-center md:text-left">
-                        {language === 'pt-BR' ? 'Minha carreira começou no suporte N1, evoluindo em 7 meses para a automação de deployments com' : 'My career started in N1 support and evolved within seven months into deployment automation with'}
-                        <span className="text-cyan-300"> WDS e MDT</span>
-                        {language === 'pt-BR' ? '. Essa base me impulsionou para o universo DevOps, explorando ' : '. This foundation led me into DevOps, exploring '}
-                        <span className="text-cyan-300"> Docker e pipelines de CI/CD</span>.
+                        {language === 'pt-BR' ? 'Meu foco é atuar em' : 'My focus is on'}
+                        <span className="text-cyan-300"> DevSecOps</span>
+                        {language === 'pt-BR' ? ', unindo desenvolvimento em' : ', combining development with'}
+                        <span className="text-cyan-300"> Python</span>
+                        {language === 'pt-BR' ? ' e automação de segurança para blindar ambientes.' : ' and security automation to safeguard environments.'}
                     </p>
                     
                     <p className="text-base sm:text-lg leading-relaxed text-center md:text-left">
-                        {language === 'pt-BR' ? 'Hoje, meu foco é consolidar minha carreira em' : 'Today, my focus is building my career in'}
-                        <span className="text-cyan-300"> DevOps e Cloud
-                        </span>, aprofundando em 
-                        <span className="text-cyan-300"> Infraestrutura como Código (IaC) </span>
-                        para criar soluções eficientes e escaláveis.
+                        {language === 'pt-BR' ? 'Possuo sólida base em' : 'I have a solid foundation in'}
+                        <span className="text-cyan-300"> redes, firewalls, Linux e Azure</span>
+                        {language === 'pt-BR' ? ', além de monitoramento com Grafana e Zabbix.' : ', alongside monitoring with Grafana and Zabbix.'}
                     </p>
                 </div>
             </div>

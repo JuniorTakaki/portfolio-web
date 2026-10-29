@@ -7,6 +7,7 @@ export type ProjectData = {
   context: string;
   status: string;
   imageUrl: string;
+  imageFit?: 'cover' | 'contain';
   projectUrl: string;
   tags: string[];
 };
@@ -41,6 +42,7 @@ const ProjectsCarousel = ({ items }: ProjectsCarouselProps) => {
               context={item.context}
               status={item.status}
               imageUrl={item.imageUrl}
+              imageFit={item.imageFit}
               projectUrl={item.projectUrl}
               tags={item.tags}
             />
