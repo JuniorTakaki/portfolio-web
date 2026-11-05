@@ -31,7 +31,7 @@ const ProjectsCarousel = ({ items }: ProjectsCarouselProps) => {
           <p className="max-w-sm text-sm leading-6 text-sky-100/55">{t('projectsDescription')}</p>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-[minmax(0,1.35fr)_minmax(18rem,0.65fr)] md:gap-5">
+        <div className="grid gap-4 md:grid-cols-3 md:gap-5">
           {items.map((item, index) => (
             <ProjectCard
               key={item.title}

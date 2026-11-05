@@ -14,7 +14,7 @@ const Cardfront = () => {
             <div className="w-full h-full rounded-full overflow-hidden bg-gray-100 dark:bg-gray-800">
               <img
                 src="/img/profile.jpg"
-                alt="Perfil"
+                alt={t('profilePhoto')}
                 className="object-cover w-full h-full"
               />
             </div>

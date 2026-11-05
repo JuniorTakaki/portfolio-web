@@ -13,7 +13,6 @@ import { useLanguage } from './context/LanguageContext';
 
 function App() {
   const { language, t } = useLanguage();
-  const topics = ["Home", "Sobre", "Habilidades", "Certificados", "Competência Aplicada", "Projects"];
 
 
   const briefExperienceData = [
@@ -28,7 +27,7 @@ function App() {
       certificateImage: "/img/lfc108.png",
     }, 
      {
-      title: "FD121: Developing Secure Software",
+      title: "LFD121: Developing Secure Software",
       description: "The linux foundation",
       certificateImage: "/img/lfd121.png",
     }, 
@@ -117,19 +116,54 @@ function App() {
   const projects: ProjectData[] = [
     {
       title: language === 'pt-BR' ? 'Lab de Automação e Segurança' : 'Security & Automation Lab',
-      description: language === 'pt-BR' ? 'Um site de portfólio para exibir meus projetos.' : 'A portfolio website to showcase my projects.',
-      context: language === 'pt-BR' ? 'Apresentar projetos, focado em boas práticas de segurança no desenvolvimento.' : 'Showcase projects, focused on secure development best practices.',
+      description: language === 'pt-BR'
+        ? 'Aplicação Python com SQLite que aplica controles de desenvolvimento seguro: validação de entrada, hash de senhas com bcrypt, consultas parametrizadas contra SQL Injection, imagem Docker enxuta e pipeline com SAST, SCA e varredura de vulnerabilidades.'
+        : 'Python + SQLite app applying secure development controls: input validation, bcrypt password hashing, parameterized queries against SQL injection, a hardened Docker image and a CI pipeline with SAST, SCA and vulnerability scanning.',
+      context: language === 'pt-BR' ? 'Laboratório prático baseado no curso LFD121 — Developing Secure Software, da Linux Foundation.' : 'Hands-on lab based on the Linux Foundation LFD121 — Developing Secure Software course.',
       status: language === 'pt-BR' ? 'Publicado' : 'Published',
       imageUrl: '/img/lfd121.png',
       imageFit: 'contain',
       projectUrl: 'https://github.com/JuniorTakaki/lab-seguranca-lfd121',
-      tags: ['Python']
+      tags: ['Python', 'SQLite', 'bcrypt', 'Docker', 'GitHub Actions']
+    },
+    {
+      title: language === 'pt-BR' ? 'Chat com Documentos (RAG)' : 'Chat with Documents (RAG)',
+      description: language === 'pt-BR'
+        ? 'Faça perguntas sobre PDFs, Markdown e TXT: os documentos são divididos em trechos, indexados com embeddings locais no ChromaDB e a IA responde citando as fontes. O provedor (Gemini, Ollama ou Claude) é trocado pelo .env.'
+        : 'Ask questions about your PDFs, Markdown and TXT files: documents are chunked, indexed with local embeddings in ChromaDB, and the AI answers citing its sources. The LLM provider (Gemini, Ollama or Claude) is switchable via .env.',
+      context: language === 'pt-BR' ? 'Estudo do padrão RAG, base da maioria dos chatbots corporativos, com foco em reduzir alucinação.' : 'Exploring the RAG pattern behind most enterprise chatbots, with a focus on reducing hallucination.',
+      status: language === 'pt-BR' ? 'Publicado' : 'Published',
+      imageUrl: '/img/projects/rag-ia.svg',
+      projectUrl: 'https://github.com/JuniorTakaki/RAG-IA',
+      tags: ['Python', 'ChromaDB', 'Streamlit', 'Gemini', 'RAG']
+    },
+    {
+      title: language === 'pt-BR' ? 'Inventário de TI (ITAM)' : 'IT Asset Inventory (ITAM)',
+      description: language === 'pt-BR'
+        ? 'Agente coletor que levanta hardware e sistema das máquinas (psutil/WMI) e envia para uma API Flask, que armazena em SQLite. Interface Tkinter para consultar ativos e registrar manutenções.'
+        : 'Collector agent that gathers hardware and OS data (psutil/WMI) and sends it to a Flask API that stores it in SQLite. Tkinter GUI to browse assets and log maintenance.',
+      context: language === 'pt-BR' ? 'Gestão de ativos de TI para suporte técnico.' : 'IT asset management for technical support teams.',
+      status: language === 'pt-BR' ? 'Em desenvolvimento' : 'In progress',
+      imageUrl: '/img/projects/inventory-ti.svg',
+      projectUrl: 'https://github.com/JuniorTakaki/inventory-TI',
+      tags: ['Python', 'Flask', 'SQLite', 'Tkinter']
+    },
+    {
+      title: 'IT Support PowerShell',
+      description: language === 'pt-BR'
+        ? 'Scripts para levantamento de hardware e desempenho e manutenção preventiva: limpeza de cache DNS, reset do Winsock, serviços do Windows Update, com log e modo -WhatIf.'
+        : 'Scripts for hardware and performance reports and preventive maintenance: DNS cache flush, Winsock reset, Windows Update services, with logging and -WhatIf mode.',
+      context: language === 'pt-BR' ? 'Diagnóstico e manutenção de máquinas Windows.' : 'Diagnostics and maintenance for Windows machines.',
+      status: language === 'pt-BR' ? 'Publicado' : 'Published',
+      imageUrl: '/img/projects/it-support-powershell.svg',
+      projectUrl: 'https://github.com/JuniorTakaki/IT-Support-Powershell',
+      tags: ['PowerShell', 'Windows', language === 'pt-BR' ? 'Automação' : 'Automation']
     }
   ];
 
   return (
     <div className="tech-grid relative min-h-screen overflow-hidden text-white">
-      <Navbar topics={topics} />
+      <Navbar />
       <SocialSidebar />
       <main className="relative z-10 pt-20">
         <section

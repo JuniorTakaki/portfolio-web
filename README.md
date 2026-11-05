@@ -1,55 +1,51 @@
-# React + TypeScript + Vite
+# Portfólio — Armando Setsuo Takaki
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Preview do portfólio](public/og-image.png)
 
-Currently, two official plugins are available:
+🔗 **Acesse:** https://portfolio-web-beta-ebon.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Sobre o portfólio
 
-## Expanding the ESLint configuration
+Este portfólio reúne minha trajetória em **Cloud, DevOps, infraestrutura e segurança da informação**. Mais do que listar tecnologias, a ideia é mostrar **evidências**: certificações verificáveis, competências aplicadas em laboratório e projetos reais publicados no GitHub.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Minha base vem do **suporte técnico e da infraestrutura**: diagnóstico de máquinas, redes, sistemas operacionais e administração de servidores Windows. A partir daí, venho evoluindo para automação, segurança no desenvolvimento e práticas DevOps. O portfólio acompanha essa evolução e é atualizado conforme concluo novos estudos e projetos.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+O site é **bilíngue (português e inglês)** e foi pensado para funcionar bem tanto no computador quanto no celular.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## O que você encontra
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Certificações
+Formação técnica documentada que sustenta minha base em infraestrutura e segurança:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
-# portfolio-web
+- **Fortinet NSE 3**: fundamentos de cibersegurança
+- **The Linux Foundation**: LFC108 (Cybersecurity Essentials) e LFD121 (Developing Secure Software)
+- **Google IT Support**: suporte técnico, redes, sistemas operacionais, administração de sistemas e segurança
+- **Windows Server 2022**
+
+### Competências aplicadas
+Credenciais oficiais e verificáveis, obtidas em avaliações práticas:
+
+- **Microsoft Applied Skills**: Active Directory Domain Services (ADDS) e automação de processos com Power Automate
+- **Cisco Networking Academy**: credencial verificada pela Credly
+
+### Projetos
+Projetos que colocam o conhecimento em prática:
+
+- **Laboratório de Segurança (LFD121)**: aplicação Python com controles de desenvolvimento seguro, como hash de senhas, proteção contra SQL Injection, Docker e análise de segurança automatizada no CI.
+- **Chat com Documentos (RAG)**: assistente com IA que responde perguntas sobre documentos próprios e cita as fontes, explorando o padrão usado em chatbots corporativos.
+- **Inventário de TI (ITAM)**: agente que coleta informações de hardware das máquinas e envia para uma API central, com interface para consultar ativos e registrar manutenções.
+- **IT Support PowerShell**: scripts para diagnóstico de hardware e manutenção preventiva de computadores Windows.
+
+## Sobre o design
+
+A identidade visual segue uma estética de **terminal**: fundo escuro, grade técnica, tipografia monoespaçada e destaques em ciano. A proposta é refletir o ambiente em que trabalho no dia a dia, com uma apresentação objetiva e organizada.
+
+Desenvolvido com **React, TypeScript, Tailwind CSS e Vite**, e publicado na **Vercel**.
+
+## Contato
+
+Estou aberto a oportunidades em **Cloud, DevOps e Infraestrutura**.
+
+- **LinkedIn:** [junior-takaki](https://www.linkedin.com/in/junior-takaki/)
+- **GitHub:** [JuniorTakaki](https://github.com/JuniorTakaki)
+- **E-mail:** juniortakaki10@gmail.com

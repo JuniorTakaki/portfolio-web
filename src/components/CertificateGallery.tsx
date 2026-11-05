@@ -111,7 +111,7 @@ export const CertificateGallery = ({ items }: CertificateGalleryProps) => {
                     ) : item.certificateImage && !isBroken ? (
                       <img
                         src={item.certificateImage}
-                        alt={`Certificado de ${item.title}`}
+                        alt={`${t('certificateOf')} ${item.title}`}
                         className={`w-full object-contain ${isActive ? 'h-36 lg:h-44' : 'h-28 lg:h-32'}`}
                         onClick={(event) => {
                           event.stopPropagation();
@@ -217,7 +217,7 @@ export const CertificateGallery = ({ items }: CertificateGalleryProps) => {
         ) : activeItem.certificateImage && !brokenImages[activeIndex] ? (
           <img
             src={activeItem.certificateImage}
-            alt={`Certificado de ${activeItem.title}`}
+            alt={`${t('certificateOf')} ${activeItem.title}`}
             className="h-48 w-full cursor-zoom-in border border-white/10 bg-black/30 object-contain"
             onClick={() => setFullscreenImage(activeItem.certificateImage ?? null)}
             onError={() => handleImageError(activeIndex)}

@@ -1,9 +1,12 @@
+import { useLanguage } from '../context/LanguageContext';
+
 interface FullscreenimageModalProps {
     imageUrl: string | null;
     onClose: () => void;
   }
   
   export const FullscreenImageModal = ({ imageUrl, onClose }: FullscreenimageModalProps) => {
+    const { t } = useLanguage();
     if (!imageUrl) return null;
   
     return (
@@ -13,7 +16,7 @@ interface FullscreenimageModalProps {
       >
         <img
           src={imageUrl}
-          alt="Certificado em tela cheia"
+          alt={t('certificateFullscreen')}
           className="max-w-full max-h-full rounded-lg"
         />
       </div>

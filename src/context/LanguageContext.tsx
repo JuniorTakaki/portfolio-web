@@ -1,4 +1,4 @@
-import { createContext, useContext, useMemo, useState, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 
 export type Language = 'pt-BR' | 'en';
 
@@ -34,10 +34,10 @@ const translations = {
     yearsBuilding: 'anos construindo',
     projectsDelivered: 'projetos entregues',
     curiosity: 'curiosidade ativa',
-    scroll: 'scroll to explore',
+    scroll: 'role para explorar',
     aboutTitle: 'Sobre',
     technicalSkills: 'Habilidades Técnicas',
-    selectedWork: 'selected work / 03',
+    selectedWork: 'projetos selecionados / 03',
     viewCredential: 'Ver credencial',
     back: 'Voltar',
     officialCredential: 'Verificar credencial oficial',
@@ -59,6 +59,12 @@ const translations = {
     skill: 'competência',
     projectImage: 'Imagem do projeto',
     viewProject: 'Ver projeto',
+    contact: 'Contato',
+    changeLanguage: 'Mudar idioma',
+    toggleMenu: 'Abrir ou fechar menu',
+    certificateOf: 'Certificado de',
+    certificateFullscreen: 'Certificado em tela cheia',
+    profilePhoto: 'Foto de perfil',
   },
   en: {
     home: 'Home',
@@ -116,6 +122,12 @@ const translations = {
     skill: 'skill',
     projectImage: 'Project image',
     viewProject: 'View project',
+    contact: 'Contact',
+    changeLanguage: 'Change language',
+    toggleMenu: 'Toggle menu',
+    certificateOf: 'Certificate:',
+    certificateFullscreen: 'Certificate in full screen',
+    profilePhoto: 'Profile photo',
   },
 } as const;
 
@@ -131,6 +143,9 @@ const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState<Language>('pt-BR');
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
   const value = useMemo(
     () => ({
       language,

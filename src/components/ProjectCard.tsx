@@ -20,10 +20,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ index, featured = fals
   const { t } = useLanguage();
   return (
     <article className={`group flex h-full flex-col overflow-hidden border bg-[#071c26] transition-colors duration-300 hover:border-cyan-300/55 ${
-      featured ? 'border-cyan-300/35 md:row-span-2' : 'border-sky-300/20'
+      featured ? 'border-cyan-300/35 md:col-span-3 md:flex-row' : 'border-sky-300/20'
     }`}>
-      <div className={`relative overflow-hidden border-b border-sky-300/15 bg-sky-950/40 ${
-        featured ? 'h-56 sm:h-72' : 'h-44 sm:h-48'
+      <div className={`relative shrink-0 overflow-hidden border-b border-sky-300/15 bg-sky-950/40 ${
+        featured ? 'h-56 sm:h-72 md:h-auto md:min-h-[22rem] md:w-[45%] md:border-b-0 md:border-r' : 'h-44 sm:h-48'
       }`}>
         <img
           className={`h-full w-full transition-transform duration-500 ${

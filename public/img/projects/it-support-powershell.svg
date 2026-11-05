@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="ui-monospace, Consolas, monospace">
+  <defs>
+    <pattern id="g" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#38bdf8" stroke-opacity="0.08"/>
+    </pattern>
+    <radialGradient id="r" cx="75%" cy="30%" r="70%">
+      <stop offset="0" stop-color="#0e7490" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#071c26" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="450" fill="#071c26"/>
+  <rect width="800" height="450" fill="url(#g)"/>
+  <rect width="800" height="450" fill="url(#r)"/>
+  <rect x="48" y="96" width="4" height="200" fill="#22d3ee"/>
+  <text x="72" y="130" fill="#67e8f9" fill-opacity="0.7" font-size="16" letter-spacing="5">WINDOWS AUTOMATION</text>
+  <text x="72" y="200" fill="#ffffff" font-size="52" font-weight="700">IT-Support-PS</text>
+  <text x="72" y="250" fill="#e0f2fe" fill-opacity="0.6" font-size="20">diagnostics &amp; maintenance</text>
+  <g fill="#22d3ee" fill-opacity="0.12" stroke="#67e8f9" stroke-opacity="0.35"><rect x="540" y="110" width="200" height="140" rx="6"/><path d="M565 150l30 20-30 20M610 195h50" fill="none" stroke-width="4"/></g>
+  <text x="72" y="380" fill="#a5f3fc" fill-opacity="0.75" font-size="16">PS&gt; .\cleanprocess.ps1 -WhatIf</text>
+</svg>
