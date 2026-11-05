@@ -1,8 +1,5 @@
 # Portfólio — Armando Setsuo Takaki
 
-![Preview do portfólio](public/og-image.png)
-
-🔗 **Acesse:** https://portfolio-web-beta-ebon.vercel.app
 
 ## Sobre o portfólio
 
